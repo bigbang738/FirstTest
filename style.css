@@ -1,11 +1,9 @@
 :root {
-    /* 파란색 글씨가 돋보이도록 밝고 부드러운 블루그레이/화이트톤 배경 사용 */
-    --bg-gradient: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    /* 세련되고 밝은 회색 그라데이션 배경 */
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
     --card-bg: rgba(255, 255, 255, 0.6);
-    --card-border: rgba(255, 255, 255, 0.8);
-    --card-shadow: rgba(67, 100, 247, 0.15);
-    /* 깊고 선명한 프리미엄 파란색 그라데이션 */
-    --accent-gradient: linear-gradient(135deg, #0052D4 0%, #4364F7 50%, #6FB1FC 100%);
+    --card-border: rgba(255, 255, 255, 0.9);
+    --card-shadow: rgba(0, 0, 0, 0.06);
 }
 
 * {
@@ -35,36 +33,59 @@ body {
     transform: translateY(0);
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
 
 .container:hover {
     transform: translateY(-12px) scale(1.03);
-    box-shadow: 0 20px 60px 0 rgba(67, 100, 247, 0.25);
+    box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.12);
     border: 1px solid #ffffff;
 }
 
 .idea-text {
-    font-size: 7.5rem; /* 글자 크기를 5rem에서 7.5rem으로 대폭 키움 */
-    font-weight: 800; /* 좀 더 두껍고 강렬하게 */
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 40px;
+    font-weight: 800;
+    color: #2c3e50; /* 배경과 잘 어울리는 고급스러운 다크 네이비/그레이 */
     animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     opacity: 0;
     letter-spacing: -0.03em;
-    /* 파란색 글씨에 어울리는 은은한 파란빛 그림자 추가 */
-    filter: drop-shadow(0px 10px 20px rgba(67, 100, 247, 0.3));
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.05));
 }
 
 @keyframes fadeInUp {
     0% {
         opacity: 0;
         transform: translateY(50px);
-        filter: drop-shadow(0px 10px 20px rgba(67, 100, 247, 0)) blur(10px);
+        filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0)) blur(10px);
     }
     100% {
         opacity: 1;
         transform: translateY(0);
-        filter: drop-shadow(0px 10px 20px rgba(67, 100, 247, 0.3)) blur(0);
+        filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.05)) blur(0);
     }
+}
+
+.next-btn {
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0052D4 0%, #4364F7 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(67, 100, 247, 0.3);
+    transition: all 0.3s ease;
+    animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.next-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(67, 100, 247, 0.4);
+    background: linear-gradient(135deg, #0044b3 0%, #3651c9 100%);
 }
