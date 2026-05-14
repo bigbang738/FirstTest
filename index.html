@@ -10,16 +10,61 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="idea-text">오늘도 힘내세요</h1>
-        <button class="next-btn">다음 문장 보기</button>
-    </div>
+    <header class="header">
+        <h1 class="logo">
+            <svg class="header-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13 10V3L4 14H11V21L20 10H13Z" />
+            </svg>
+            나의 첫 서비스
+        </h1>
+        <nav class="header-nav">
+            <a href="#">소개</a>
+            <a href="#">기능</a>
+            <a href="#">문의</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <section id="intro">
+            <h2 class="section-title">핵심 기능 소개</h2>
+            <div class="container">
+                <h1 class="idea-text">오늘도 힘내세요</h1>
+                <button class="next-btn">다음 문장 보기</button>
+            </div>
+        </section>
+
+        <section id="reviews">
+            <h2 class="section-title">사용자 후기</h2>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <img src="korean_user_profile_1_1778756803921.png" alt="User 1" class="profile-img">
+                    <div class="review-content">
+                        <h3 class="user-name">김태호</h3>
+                        <p class="user-role">제품 디자이너</p>
+                        <p class="review-text">"매일 아침 이 서비스를 보며 힘을 얻고 있어요. 색감이 너무 예쁘고 인터랙션이 부드러워서 사용할 때마다 기분이 좋아지네요!"
+                        </p>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <img src="korean_user_profile_2_1778756817783.png" alt="User 2" class="profile-img">
+                    <div class="review-content">
+                        <h3 class="user-name">이지원</h3>
+                        <p class="user-role">프론트엔드 개발자</p>
+                        <p class="review-text">"간결하면서도 확실한 동기부여가 됩니다. 디자인이 정말 프리미엄 느낌이라 서비스의 퀄리티가 확 느껴지네요. 강력 추천합니다!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 My Service</p>
+    </footer>
     <script>
         const sentences = [
-            { text: "오늘도 힘내세요", color: "linear-gradient(135deg, #0052D4 0%, #4364F7 100%)" }, // 기본 파란색
-            { text: "오늘도 해냈어요", color: "linear-gradient(135deg, #f1c40f 0%, #f39c12 100%)" }, // 노란색 그라데이션
-            { text: "조금씩 나아지고 있어요", color: "linear-gradient(135deg, #e67e22 0%, #d35400 100%)" }, // 주황색 그라데이션
-            { text: "이대로 계속 가 봅시다", color: "linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)" } // 초록색 그라데이션
+            { text: "오늘도 힘내세요", color: "linear-gradient(135deg, #a8e063 0%, #24fe41 100%)" }, // 연한 녹색
+            { text: "오늘도 해냈어요", color: "linear-gradient(135deg, #96e6a1 0%, #d4fc79 100%)" }, // 상큼한 녹색
+            { text: "조금씩 나아지고 있어요", color: "linear-gradient(135deg, #a1ffce 0%, #faffd1 100%)" }, // 밝은 민트 녹색
+            { text: "이대로 계속 가 봅시다", color: "linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)" } // 라임 녹색
         ];
         let currentIndex = 0;
 
@@ -35,8 +80,8 @@
             textElement.style.animation = null;
 
             textElement.textContent = sentences[currentIndex].text;
-            textElement.style.color = "#2c3e50"; // 텍스트 색상은 검정(다크 네이비)으로 고정
-            nextBtn.style.background = sentences[currentIndex].color; // 버튼 색상 변경
+            textElement.style.color = "#1b4332"; // 텍스트 색상을 어두운 녹색으로 고정
+            nextBtn.style.setProperty('--btn-bg', sentences[currentIndex].color); // 버튼 배경색 변수 업데이트
         });
     </script>
 </body>

@@ -1,9 +1,13 @@
 :root {
-    /* 세련되고 밝은 회색 그라데이션 배경 */
-    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-    --card-bg: rgba(255, 255, 255, 0.6);
+    /* 연한 녹색과 어두운 계열의 프리미엄 테마 */
+    --primary-green: #a8e063;
+    --primary-gradient: linear-gradient(135deg, #a8e063 0%, #24fe41 100%);
+    --secondary-dark: #1b4332;
+    --secondary-gradient: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
+    --bg-gradient: linear-gradient(135deg, #f0f7f0 0%, #e8f5e9 100%);
+    --card-bg: rgba(255, 255, 255, 0.7);
     --card-border: rgba(255, 255, 255, 0.9);
-    --card-shadow: rgba(0, 0, 0, 0.06);
+    --card-shadow: rgba(27, 67, 50, 0.1);
 }
 
 * {
@@ -15,11 +19,155 @@
 body {
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
     background: var(--bg-gradient);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    color: #333;
+    line-height: 1.6; /* 본문 기본 행간 설정 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+    background: var(--secondary-gradient); /* 보조 색상(어두운 계열) 적용 */
+    color: #ffffff;
+    padding: 20px 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    overflow: hidden;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 아이콘과 텍스트 사이 간격 */
+}
+
+.header-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 35px; /* 메뉴 간의 여유 있는 간격 */
+}
+
+.header-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400; /* 메뉴는 일반 두께로 */
+    transition: opacity 0.3s ease;
+}
+
+.header-nav a:hover {
+    opacity: 0.7;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    width: 100%;
+    padding: 100px 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 후기 섹션에 미세한 배경색 차이를 주어 구분감 강화 */
+#reviews {
+    background-color: rgba(27, 67, 50, 0.03); 
+    border-top: 1px solid rgba(27, 67, 50, 0.05);
+    border-bottom: 1px solid rgba(27, 67, 50, 0.05);
+}
+
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 800; /* 제목은 아주 굵게 */
+    color: var(--secondary-dark);
+    margin-bottom: 50px;
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+.reviews-container {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.review-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 25px;
+    padding: 40px;
+    width: 500px;
+    box-shadow: 0 15px 40px var(--card-shadow);
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: transform 0.4s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-10px);
+}
+
+.profile-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffffff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.review-content {
+    flex: 1;
+}
+
+.user-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.user-role {
+    font-size: 1rem;
+    color: #7f8c8d;
+    font-weight: 400; /* 정보 텍스트는 일반 두께 */
+    margin-bottom: 20px;
+}
+
+.review-text {
+    font-size: 1.1rem;
+    color: #34495e;
+    line-height: 1.7;
+    font-weight: 400; /* 후기 본문은 일반 두께 */
+    font-style: normal; /* 가독성을 위해 이탤릭 제거 */
+}
+
+.footer {
+    background: #e2e5ea; /* 회색 배경 */
+    color: #666666;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 14px;
+    font-weight: 400; /* 푸터는 얇게 */
 }
 
 .container {
@@ -48,7 +196,7 @@ body {
 .idea-text {
     font-size: 40px;
     font-weight: 800;
-    color: #2c3e50; /* 배경과 잘 어울리는 고급스러운 다크 네이비/그레이 */
+    color: var(--secondary-dark); /* 어두운 녹색 계열 적용 */
     animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     opacity: 0;
     letter-spacing: -0.03em;
@@ -73,11 +221,11 @@ body {
     font-size: 18px;
     font-weight: 700;
     color: #ffffff;
-    background: linear-gradient(135deg, #0052D4 0%, #4364F7 100%);
+    background: var(--btn-bg, var(--primary-gradient)); /* 변수 사용, 기본값은 주 색상 */
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(67, 100, 247, 0.3);
+    box-shadow: 0 8px 20px rgba(168, 224, 99, 0.3);
     transition: all 0.3s ease;
     animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     animation-delay: 0.3s;
@@ -85,7 +233,86 @@ body {
 }
 
 .next-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(67, 100, 247, 0.4);
-    background: linear-gradient(135deg, #0044b3 0%, #3651c9 100%);
+    transform: translateY(-5px) scale(1.05); /* 위로 떠오르며 살짝 커짐 */
+    box-shadow: 0 15px 30px rgba(27, 67, 50, 0.25);
+    background: var(--secondary-gradient) !important; /* 호버 시 보조 색상으로 변경 */
+}
+
+/* 반응형 디자인 (모바일/태블릿) */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .header .logo {
+        font-size: 20px;
+    }
+
+    .header-nav {
+        gap: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-nav a {
+        font-size: 14px;
+    }
+
+    .main-content {
+        padding: 60px 1rem;
+        gap: 80px;
+    }
+
+    section {
+        padding: 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        padding: 3rem 1.5rem;
+        width: 100%;
+        gap: 30px;
+    }
+
+    .idea-text {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .next-btn {
+        padding: 16px 35px; /* 터치하기 좋은 넉넉한 크기 */
+        font-size: 16px;
+    }
+
+    .review-card {
+        width: 100%;
+        padding: 30px 20px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .profile-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .user-role {
+        margin-bottom: 10px;
+    }
+
+    .review-text {
+        font-size: 0.95rem; /* 본문 폰트 소폭 축소 */
+    }
 }
